@@ -15,7 +15,6 @@ The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM,
 | 7 | Node          | 67,055.6         | -90.78%      |
 | 8 | Deno          | 65,420           | -91.00%      |
 
-
 Soon implementations in C++, Erlang and Zig 
 
 Run in Node
@@ -85,6 +84,19 @@ cd server-rust && cargo build
 Run
 ```bash
 cd server-rust && cargo run
+```
+
+Run in Java
+-------------
+
+Build
+```bash
+cd server-java && mvn compile
+```
+
+Run
+```bash
+java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Client 

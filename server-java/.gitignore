@@ -1,0 +1,38 @@
+# Compilação e artefatos de build do Maven
+/target/
+*.war
+*.ear
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*~
+
+# Diretórios e arquivos de IDEs
+/.idea/
+/*.iml
+/.vscode/
+/.classpath
+/.project
+/.settings/
+/*.launch
+
+# Arquivos gerados pelo sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de cache do Maven
+.mvn/timing.properties
+
+# Arquivos de configuração do sistema operacional
+*.bat
+*.cmd
+*.sh
+*.bash
+
+# Outras pastas e arquivos que podem ser ignorados
+/out/
