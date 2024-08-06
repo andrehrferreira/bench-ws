@@ -5,16 +5,18 @@ The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM,
 
 |   | Server        | Avg Messages/sec | % Difference |
 |---|---------------|------------------|--------------|
-| 0 | Rust          | 3,007,707.8      | 337.82%      |
-| 1 | C#            | 1,819,930        | 164.92%      |
-| 2 | Python3       | 185,285.2        | -73.03%      |
-| 3 | Bun           | 136,835.2        | -80.08%      |
-| 4 | Go            | 118,835.8        | -82.70%      |
-| 5 | uWebsocket.js | 86,810.9         | -87.36%      |
-| 6 | Deno          | 72,728.4         | -89.41%      |
-| 7 | Node          | 67,626.6         | -90.16%      |
+| 0 | Rust          | 3,072,247.2      | 322.48%      |
+| 1 | C#            | 2,040,620        | 180.62%      |
+| 2 | Java          | 829,580.6        | 14.08%       |
+| 3 | Python3       | 176,374.1        | -75.75%      |
+| 4 | Go            | 107,940.8        | -85.16%      |
+| 5 | Bun           | 98,558.4         | -86.45%      |
+| 6 | uWebsocket.js | 86,886.5         | -88.05%      |
+| 7 | Node          | 67,055.6         | -90.78%      |
+| 8 | Deno          | 65,420           | -91.00%      |
 
-Soon implementations in C++, Erlang, Zig and Java
+
+Soon implementations in C++, Erlang and Zig 
 
 Run in Node
 -------------
