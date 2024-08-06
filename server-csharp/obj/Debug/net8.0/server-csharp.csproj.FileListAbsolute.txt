@@ -1,0 +1,14 @@
+/mnt/f/Node/bench-ws/server-csharp/bin/Debug/net8.0/server-csharp
+/mnt/f/Node/bench-ws/server-csharp/bin/Debug/net8.0/server-csharp.deps.json
+/mnt/f/Node/bench-ws/server-csharp/bin/Debug/net8.0/server-csharp.runtimeconfig.json
+/mnt/f/Node/bench-ws/server-csharp/bin/Debug/net8.0/server-csharp.dll
+/mnt/f/Node/bench-ws/server-csharp/bin/Debug/net8.0/server-csharp.pdb
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.AssemblyInfoInputs.cache
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.AssemblyInfo.cs
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.csproj.CoreCompileInputs.cache
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.dll
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/refint/server-csharp.dll
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.pdb
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.genruntimeconfig.cache
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/ref/server-csharp.dll

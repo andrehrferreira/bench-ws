@@ -1,0 +1,220 @@
+const env = typeof process !== 'undefined' ? process.env : (typeof Deno !== 'undefined' ? Deno.env.toObject() : {});
+
+const SERVERS = [  
+  { name: "Node", url: "ws://0.0.0.0:3001" },
+  { name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },
+  { name: "Deno", url: "ws://0.0.0.0:3003" },
+  { name: "Bun", url: "ws://0.0.0.0:3004" },
+  { name: "Go", url: "ws://0.0.0.0:3005" },
+  { name: "C#", url: "ws://0.0.0.0:3006" },
+];
+
+const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
+const LOG_MESSAGES = env.LOG_MESSAGES === "1";
+const CLIENTS_TO_WAIT_FOR = 100;
+const DELAY = 64;
+const WAIT_TIME_BETWEEN_TESTS = 20000; // 20 seconds
+const MESSAGES_TO_SEND = Array.from({ length: 32 }, () => [
+  "Hello World!",
+  "Hello World! 1",
+  "Hello World! 2",
+  "Hello World! 3",
+  "Hello World! 4",
+  "Hello World! 5",
+  "Hello World! 6",
+  "Hello World! 7",
+  "Hello World! 8",
+  "Hello World! 9",
+  "What is the meaning of life?",
+  "where is the bathroom?",
+  "zoo",
+  "kangaroo",
+  "erlang",
+  "elixir",
+  "bun",
+  "mochi",
+  "typescript",
+  "javascript",
+  "Hello World! 7",
+  "Hello World! 8",
+  "Hello World! 9",
+  "What is the meaning of life?",
+  "where is the bathroom?",
+  "zoo",
+  "kangaroo",
+  "erlang",
+  "elixir",
+  "bun",
+  "mochi",
+  "typescript",
+  "javascript",
+  "Hello World! 7",
+  "Hello World! 8",
+  "Hello World! 9",
+  "What is the meaning of life?",
+  "Hello World! 7",
+  "Hello World! 8",
+  "Hello World! 9",
+  "What is the meaning of life?",
+  "where is the bathroom?",
+  "zoo",
+  "kangaroo",
+  "erlang",
+  "elixir",
+  "bun",
+  "mochi",
+  "typescript",
+  "javascript",
+]).flat();
+
+const NAMES = Array.from({ length: 100 }, (a, i) => [
+  "Alice" + i,
+  "Bob" + i,
+  "Charlie" + i,
+  "David" + i,
+  "Eve" + i,
+  "Frank" + i,
+  "Grace" + i,
+  "Heidi" + i,
+  "Ivan" + i,
+  "Judy" + i,
+  "Karl" + i,
+  "Linda" + i,
+  "Mike" + i,
+  "Nancy" + i,
+  "Oscar" + i,
+  "Peggy" + i,
+  "Quentin" + i,
+  "Ruth" + i,
+  "Steve" + i,
+  "Trudy" + i,
+  "Ursula" + i,
+  "Victor" + i,
+  "Wendy" + i,
+  "Xavier" + i,
+  "Yvonne" + i,
+  "Zach" + i,
+]).flat().slice(0, CLIENTS_TO_WAIT_FOR);
+
+const results = [];
+
+async function testServer(server) {
+  console.log(`Connecting to ${server.name} at ${server.url}`);
+  console.time(`All clients connected to ${server.name}`);
+  const promises = [];
+  let received = 0;
+  let total = 0;
+  let more = false;
+  let remaining;
+
+  const clients = new Array(CLIENTS_TO_WAIT_FOR);
+  for (let i = 0; i < CLIENTS_TO_WAIT_FOR; i++) {
+    clients[i] = new WebSocket(`${server.url}?name=${NAMES[i]}`);
+    promises.push(
+      new Promise((resolve, reject) => {
+        clients[i].onopen = () => {
+          resolve();
+        };
+        clients[i].onerror = (err) => {
+          reject(err);
+        };
+      })
+    );
+  }
+
+  await Promise.all(promises);
+  console.timeEnd(`All clients connected to ${server.name}`);
+
+  for (let i = 0; i < CLIENTS_TO_WAIT_FOR; i++) {
+    clients[i].onmessage = (event) => {
+      if (LOG_MESSAGES) console.log(event.data);
+      received++;
+      remaining--;
+
+      if (remaining === 0) {
+        more = true;
+        remaining = total;
+      }
+    };
+  }
+
+  for (let i = 0; i < CLIENTS_TO_WAIT_FOR; i++) {
+    for (let j = 0; j < MESSAGES_TO_SEND.length; j++) {
+      for (let k = 0; k < CLIENTS_TO_WAIT_FOR; k++) {
+        total++;
+      }
+    }
+  }
+  remaining = total;
+
+  function restart() {
+    for (let i = 0; i < CLIENTS_TO_WAIT_FOR; i++) {
+      for (let j = 0; j < MESSAGES_TO_SEND.length; j++) {
+        clients[i].send(MESSAGES_TO_SEND[j]);
+      }
+    }
+  }
+
+  const runs = [];
+  await new Promise((resolve) => {
+    const interval = setInterval(() => {
+      const last = received;
+      if (last > 0) {
+        runs.push(last);
+      }
+      received = 0;
+      console.log(
+        `${server.name}: ${last} messages per second (${CLIENTS_TO_WAIT_FOR} clients x ${MESSAGES_TO_SEND.length} msg, min delay: ${DELAY}ms)`
+      );
+
+      if (runs.length >= 20) {
+        console.log(`${server.name}: 20 runs completed`);
+        clearInterval(interval);
+        resolve();
+      }
+    }, 1000);
+
+    let isRestarting = false;
+    setInterval(() => {
+      if (more && !isRestarting) {
+        more = false;
+        isRestarting = true;
+        restart();
+        isRestarting = false;
+      }
+    }, DELAY);
+    restart();
+  });
+
+  const sum = runs.reduce((acc, val) => acc + val, 0);
+  const average = sum / runs.length;
+  console.log(`Average messages per second for ${server.name}: ${average}`);
+  results.push({ name: server.name, average });
+}
+
+async function runTests() {
+  for (const server of SERVERS) {
+    await testServer(server);
+    await new Promise((resolve) => setTimeout(resolve, WAIT_TIME_BETWEEN_TESTS));
+  }
+
+  // Calculate the average of all servers
+  const overallAverage = results.reduce((acc, { average }) => acc + average, 0) / results.length;
+
+  // Add percentage difference to each result
+  results.forEach(result => {
+    result.percentage = ((result.average - overallAverage) / overallAverage) * 100;
+  });
+
+  // Sort results by average messages per second
+  results.sort((a, b) => b.average - a.average);
+
+  // Display results
+  console.table(results.map(result => ({
+    Server: result.name,
+    "Avg Messages/sec": result.average,
+    "% Difference": `${result.percentage.toFixed(2)}%`
+  })));
+}
+
+runTests();

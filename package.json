@@ -1,0 +1,23 @@
+{
+  "name": "bench-ws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server-bun.js",
+  "scripts": {
+    "server-deno": "deno run -A server-deno.mjs",
+    "server-node": "node server-node.js",
+    "server-bun": "bun server-bun.js",
+    "server-uws": "node server-uws.js",
+    "server-go": "cd server-go && go run server.go",
+    "build-csharp": "cd server-csharp && dotnet build",
+    "server-csharp": "cd server-csharp && dotnet run",    
+    "build-erland": "cd server-erlang && rebar3 compile",
+    "build-cpp": "cd server-cpp && g++ -std=c++17 -O3 -o websocket_server server.cpp -luv -lz -lssl -lcrypto -lpthread"
+  },
+  "author": "Andre Ferreira",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.44.0"
+  }
+}
