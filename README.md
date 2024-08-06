@@ -65,6 +65,12 @@ Build
 ```bash
 cd server-erlang && rebar3 compile
 ```
+## Run in python
+
+Run
+```bash
+python server-python.py
+```
 
 Run in Phyton
 -------------
