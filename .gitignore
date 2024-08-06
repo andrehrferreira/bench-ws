@@ -5,3 +5,7 @@ server-cpp/websocketpp
 server-cpp/packages
 server-cpp/.vs/**
 server-cpp/.vs/**/*
+venv
+build
+dist
+*.spec

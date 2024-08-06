@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Net;
 using System.Net.WebSockets;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 class WebSocketServer
 {
-    private static ConcurrentDictionary<WebSocket, string> clients = new ConcurrentDictionary<WebSocket, string>();
-    private static readonly int Port = 3006; // Porta onde o servidor vai escutar
+    private static readonly ConcurrentDictionary<WebSocket, (string, SemaphoreSlim)> clients = new();
+    private static readonly int Port = 3006;
     private static readonly int ClientsToWaitFor = 100;
 
     static async Task Main(string[] args)
     {
-        HttpListener listener = new HttpListener();
+        HttpListener listener = new();
         listener.Prefixes.Add($"http://*:{Port}/");
         listener.Start();
         Console.WriteLine($"WebSocket server is running on ws://localhost:{Port}");
@@ -27,7 +24,7 @@ class WebSocketServer
 
                 if (context.Request.IsWebSocketRequest)
                 {
-                    _ = Task.Run(() => HandleWebSocketAsync(context));
+                    _ = HandleWebSocketAsync(context);
                 }
                 else
                 {
@@ -44,12 +41,11 @@ class WebSocketServer
 
     private static async Task HandleWebSocketAsync(HttpListenerContext context)
     {
-        WebSocketContext webSocketContext;
         WebSocket webSocket;
 
         try
         {
-            webSocketContext = await context.AcceptWebSocketAsync(null);
+            var webSocketContext = await context.AcceptWebSocketAsync(null);
             webSocket = webSocketContext.WebSocket;
         }
         catch (Exception ex)
@@ -59,28 +55,29 @@ class WebSocketServer
         }
 
         string name = $"Client{clients.Count + 1}";
-        clients.TryAdd(webSocket, name);
+        SemaphoreSlim semaphore = new(1, 1);
+        clients.TryAdd(webSocket, (name, semaphore));
+
         Console.WriteLine($"{name} connected ({ClientsToWaitFor - clients.Count} remain)");
 
         if (clients.Count == ClientsToWaitFor)
         {
             SendReadyMessage();
+            await Task.Delay(230);
         }
 
         try
         {
+            var buffer = new ArraySegment<byte>(new byte[1024]);
+
             while (webSocket.State == WebSocketState.Open)
             {
-                ArraySegment<byte> buffer = new ArraySegment<byte>(new byte[1024]);
-                WebSocketReceiveResult result = await webSocket.ReceiveAsync(buffer, CancellationToken.None);
+                WebSocketReceiveResult result = await webSocket.ReceiveAsync(buffer, CancellationToken.None).ConfigureAwait(false);
 
                 if (result.MessageType == WebSocketMessageType.Close)
-                {
                     break;
-                }
 
                 string message = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);
-                //Console.WriteLine($"{name}: {message}");
                 await BroadcastMessage(name, message);
             }
         }
@@ -98,7 +95,7 @@ class WebSocketServer
             {
                 try
                 {
-                    await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed by server", CancellationToken.None);
+                    await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed by server", CancellationToken.None).ConfigureAwait(false);
                 }
                 catch (WebSocketException ex)
                 {
@@ -115,48 +112,65 @@ class WebSocketServer
     {
         string msg = $"{name}: {message}";
         byte[] msgBuffer = Encoding.UTF8.GetBytes(msg);
-        ArraySegment<byte> segment = new ArraySegment<byte>(msgBuffer);
+        var segment = new ArraySegment<byte>(msgBuffer);
 
-        foreach (var client in clients.Keys)
-        {
-            if (client.State == WebSocketState.Open)
+        var clientsCopy = clients.ToArray();
+
+        var tasks = clientsCopy
+            .Where(c => c.Key.State == WebSocketState.Open)
+            .Select(async client =>
             {
+                var semaphore = client.Value.Item2;
+                await semaphore.WaitAsync();
                 try
                 {
-                    await client.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
+                    await client.Key.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None).ConfigureAwait(false);
                 }
                 catch (WebSocketException ex)
                 {
                     Console.WriteLine($"Error sending message: {ex.Message}");
                 }
-            }
-        }
+                finally
+                {
+                    semaphore.Release();
+                }
+            });
+
+        await Task.WhenAll(tasks);
     }
 
     private static void SendReadyMessage()
     {
-        Console.WriteLine("All clients connected");
+        string readyMessage = "ready";
+        byte[] msgBuffer = Encoding.UTF8.GetBytes(readyMessage);
+        ArraySegment<byte> segment = new ArraySegment<byte>(msgBuffer);
+
         Task.Delay(100).ContinueWith(async _ =>
         {
-            //Console.WriteLine("Starting benchmark");
-            string readyMessage = "ready";
-            byte[] msgBuffer = Encoding.UTF8.GetBytes(readyMessage);
-            ArraySegment<byte> segment = new ArraySegment<byte>(msgBuffer);
+            var clientsCopy = clients.ToArray();
 
-            foreach (var client in clients.Keys)
-            {
-                if (client.State == WebSocketState.Open)
+            var tasks = clientsCopy
+                .Where(c => c.Key.State == WebSocketState.Open)
+                .Select(async client =>
                 {
+                    var semaphore = client.Value.Item2;
+                    await semaphore.WaitAsync();
+
                     try
                     {
-                        await client.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
+                        await client.Key.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
                     }
                     catch (WebSocketException ex)
                     {
                         Console.WriteLine($"Error sending ready message: {ex.Message}");
                     }
-                }
-            }
+                    finally
+                    {
+                        semaphore.Release();
+                    }
+                });
+
+            await Task.WhenAll(tasks);
         });
     }
 }
