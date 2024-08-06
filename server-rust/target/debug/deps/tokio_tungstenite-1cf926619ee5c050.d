@@ -1,0 +1,11 @@
+/mnt/f/Node/bench-ws/server-rust/target/debug/deps/libtokio_tungstenite-1cf926619ee5c050.rmeta: /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/lib.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/compat.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/connect.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/handshake.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/stream.rs
+
+/mnt/f/Node/bench-ws/server-rust/target/debug/deps/libtokio_tungstenite-1cf926619ee5c050.rlib: /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/lib.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/compat.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/connect.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/handshake.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/stream.rs
+
+/mnt/f/Node/bench-ws/server-rust/target/debug/deps/tokio_tungstenite-1cf926619ee5c050.d: /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/lib.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/compat.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/connect.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/handshake.rs /home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/stream.rs
+
+/home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/lib.rs:
+/home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/compat.rs:
+/home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/connect.rs:
+/home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/handshake.rs:
+/home/andre/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tokio-tungstenite-0.14.0/src/stream.rs:

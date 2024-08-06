@@ -1,0 +1,13 @@
+[package]
+name = "server-rust"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+tokio-tungstenite = "0.14"
+futures-util = "0.3"
+
+[[bin]]
+name = "server-rust"
+path = "src/main.rs"
