@@ -1,0 +1,11 @@
+﻿  server-cpp.cpp
+F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\frame.hpp(834,13): warning C4267: '=': conversão de 'size_t' para 'uint32_t', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\common\md5.hpp(367,29): warning C4267: '+=': conversão de 'size_t' para 'websocketpp::md5::md5_word_t', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\sha1\sha1.hpp(176,24): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+  server-cpp.vcxproj -> F:\Node\bench-ws\server-cpp\x64\Debug\server-cpp.exe

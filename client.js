@@ -7,6 +7,10 @@ const SERVERS = [
   { name: "Bun", url: "ws://0.0.0.0:3004" },
   { name: "Go", url: "ws://0.0.0.0:3005" },
   { name: "C#", url: "ws://0.0.0.0:3006" },
+  { name: "Phyton3", url: "ws://0.0.0.0:3007" },
+  //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
+  //{ name: "Erlang", url: "ws://0.0.0.0:3009" }, // In implementation
+  //{ name: "C++", url: "ws://0.0.0.0:3010" }, // In implementation
 ];
 
 const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
