@@ -12,3 +12,4 @@
 /mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.pdb
 /mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.genruntimeconfig.cache
 /mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/ref/server-csharp.dll
+/mnt/f/Node/bench-ws/server-csharp/obj/Debug/net8.0/server-csharp.sourcelink.json

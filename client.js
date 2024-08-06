@@ -171,8 +171,8 @@ async function testServer(server) {
         `${server.name}: ${last} messages per second (${CLIENTS_TO_WAIT_FOR} clients x ${MESSAGES_TO_SEND.length} msg, min delay: ${DELAY}ms)`
       );
 
-      if (runs.length >= 20) {
-        console.log(`${server.name}: 20 runs completed`);
+      if (runs.length >= 10) {
+        console.log(`${server.name}: 10 runs completed`);
         clearInterval(interval);
         resolve();
       }
