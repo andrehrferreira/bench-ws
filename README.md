@@ -1,30 +1,30 @@
-# bench websocket
+# Benchmark Websocket
 
-Run in Node:
+## Run in Node:
 
 ```bash
 node server-node.js
 ```
 
-Run in uWebsocket.js:
+## Run in uWebsocket.js:
 
 ```bash
 node server-uws.js
 ```
 
-Run in Deno:
+## Run in Deno:
 
 ```bash
 deno run -A server-deno.mjs
 ```
 
-Run in Bun:
+## Run in Bun:
 
 ```bash
 bun server-bun.js
 ```
 
-Run in C#:
+## Run in C#:
 
 Build
 ```bash
@@ -36,11 +36,14 @@ Run
 cd server-csharp && dotnet run
 ```
 
-Run in Erlang
+## Run in Erlang
+
 Build
 ```bash
 cd server-erlang && rebar3 compile
 ```
+
+## Client 
 
 To start the test it will be necessary to start all the servers, each one is configured on a port
 
