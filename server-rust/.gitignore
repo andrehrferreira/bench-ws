@@ -1,0 +1,34 @@
+# Rust compilados e artefatos de build
+/target/
+
+# Arquivos de configuração e logs de build do Cargo
+**/*.rs.bk
+Cargo.lock
+.cargo/
+.cargo.lock
+
+# Arquivos de log
+*.log
+
+# Arquivos de extensão temporários
+*.tmp
+*.temp
+*.swp
+
+# Diretório de dependências de Rust
+/target/debug/
+**/target/debug/
+
+# Pasta de build do release
+/target/release/
+**/target/release/
+
+# Diretórios e arquivos gerados por editores de código
+/.vscode/
+.idea/
+/*.iml
+
+# Arquivos temporários criados pelo editor
+*~
+*.sublime-project
+*.sublime-
