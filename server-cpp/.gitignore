@@ -1,0 +1,115 @@
+# Compiled object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Other C++ related files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.pdb
+*.idb
+*.opt
+*.ncb
+*.plg
+*.suo
+*.props
+*.o
+*.obj
+*.dll
+*.exe
+*.so
+*.dylib
+
+# CMake generated files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Qt Creator files
+*.pro.user
+*.qmake.stash
+
+# Code::Blocks files
+*.depend
+*.layout
+
+# Xcode files
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.xccheckout
+*.xcworkspace
+xcuserdata/
+*.xcscmblueprint
+
+# User-specific files
+*.user
+*.userosscache
+*.userprefs
+*.swp
+*~
+
+# Log files
+*.log
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Temporary files
+*.temp
+*.tmp
+
+# Visual Studio cache files
+.vscode/
+.vs/
+.vscode-test/
+
+# Others
+.idea/
+.DS_Store
+Thumbs.db
+
+vcpkg/*
+vcpkg_installed/*

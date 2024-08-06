@@ -70,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PublicIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PublicIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -104,7 +110,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\websocketpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Node\bench-ws\server-cpp\external\oneapi-tbb-2021.13.0\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\vcpkg\pkgs\asio_x64-windows\include;F:/Node/bench-ws/server-cpp/vcpkg_installed/vcpkg/pkgs/asio_x64-windows;F:\Node\bench-ws\server-cpp\external\crow\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(SolutionDir)\uWebSockets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>F:\Node\bench-ws\server-cpp\external\oneapi-tbb-2021.13.0\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\vcpkg\pkgs\asio_x64-windows\include;F:/Node/bench-ws/server-cpp/vcpkg_installed/vcpkg/pkgs/asio_x64-windows;F:\Node\bench-ws\server-cpp\external\crow\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(SolutionDir)\uWebSockets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="vcpkg.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

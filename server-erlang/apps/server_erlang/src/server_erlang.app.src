@@ -1,11 +1,14 @@
-{application, server_erlang,
- [
-  {description, "Server Erlang Application"},
-  {vsn, "0.1.0"},
-  {modules, [server_erlang]},
-  {registered, []},
-  {applications, [kernel, stdlib, sasl]},
-  {mod, {server_erlang_app, []}},
-  {env, []},
-  {runtime_dependencies, []}
+{application, server_erlang, [
+    {description, "An OTP application"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {server_erlang_app, []}},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env, []},
+    {modules, []},
+    {licenses, ["Apache-2.0"]},
+    {links, []}
  ]}.

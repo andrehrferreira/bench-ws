@@ -1,4 +1,4 @@
-server-erlang
+server_erlang
 =====
 
 An OTP application

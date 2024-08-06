@@ -1,11 +1,181 @@
 ﻿  server-cpp.cpp
-F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\frame.hpp(834,13): warning C4267: '=': conversão de 'size_t' para 'uint32_t', possível perda de dados
+F:\Node\bench-ws\server-cpp\packages\boost.1.85.0\lib\native\include\boost\core\swap.hpp(26): message : This header is deprecated. Use boost/core/invoke_swap.hpp instead.
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\query_string.h(117,20): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
   (compilando o arquivo fonte 'server-cpp.cpp')
   
-F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\common\md5.hpp(367,29): warning C4267: '+=': conversão de 'size_t' para 'websocketpp::md5::md5_word_t', possível perda de dados
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\query_string.h(370,92): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
   (compilando o arquivo fonte 'server-cpp.cpp')
   
-F:\Node\bench-ws\server-cpp\websocketpp\websocketpp\sha1\sha1.hpp(176,24): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\query_string.h(406,94): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
   (compilando o arquivo fonte 'server-cpp.cpp')
   
-  server-cpp.vcxproj -> F:\Node\bench-ws\server-cpp\x64\Debug\server-cpp.exe
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\query_string.h(445,112): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\utility.h(672,39): warning C4267: 'inicializando': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_parser_merged.h(589,32): warning C4244: '=': conversão de '__int64' para 'unsigned long', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_parser_merged.h(609,32): warning C4244: '=': conversão de '__int64' para 'unsigned long', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\json.h(1211,35): warning C4267: 'argumento': conversão de 'size_t' para 'uint32_t', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\json.h(1671,32): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(97,33): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(116,48): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(118,53): warning C4267: 'argumento': conversão de 'size_t' para '_Ty', possível perda de dados
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         with
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         [
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:             _Ty=int
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         ]
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(221,94): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(367,54): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(378,54): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(390,54): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(401,54): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(463,60): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\mustache.h(563,28): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(800,70): warning C4244: 'argumento': conversão de '__int64' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(821,70): warning C4244: 'argumento': conversão de '__int64' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(842,70): warning C4244: 'argumento': conversão de '__int64' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(864,61): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(880,61): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(895,61): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(945,53): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(956,45): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1002,36): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1005,33): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1204,101): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1204,87): warning C4267: 'argumento': conversão de 'size_t' para 'uint16_t', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1210,118): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1259,100): warning C4267: 'argumento': conversão de 'size_t' para 'unsigned int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\routing.h(1420,24): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(473,63): warning C4244: 'argumento': conversão de 'unsigned __int64' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(473,63):
+  o contexto de instanciação do modelo (o mais antigo primeiro) é
+  	F:\Node\bench-ws\server-cpp\server-cpp.cpp(18,21):
+  	consulte a referência à instanciação 'crow::Crow<>' do modelo da classe que está sendo compilada
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\app.h(279,14):
+  	ao compilar a função de membro 'void crow::Crow<>::run(void)' do modelo da classe
+  		F:\Node\bench-ws\server-cpp\server-cpp.cpp(46,31):
+  		veja a primeira referência a 'crow::Crow<>::run' em 'main'
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\app.h(301,1):
+  	consulte a referência à instanciação 'crow::Server<crow::Crow<>,crow::SocketAdaptor>' do modelo da classe que está sendo compilada
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_server.h(194,14):
+  	ao compilar a função de membro 'void crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept(void)' do modelo da classe
+  		F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_server.h(152,22):
+  		veja a primeira referência a 'crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept' em 'crow::Server<crow::Crow<>,crow::SocketAdaptor>::run'
+  		F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\app.h(308,29):
+  		veja a primeira referência a 'crow::Server<crow::Crow<>,crow::SocketAdaptor>::run' em 'crow::Crow<>::run'
+  		F:\Node\bench-ws\server-cpp\server-cpp.cpp(46,31):
+  		veja a primeira referência a 'crow::Crow<>::run' em 'main'
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_server.h(201,26):
+  	consulte a referência à instanciação 'crow::Connection<Adaptor,Handler>' do modelo da classe que está sendo compilada
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(463,14):
+  	ao compilar a função de membro 'void crow::Connection<Adaptor,Handler>::do_read(void)' do modelo da classe
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  		F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(88,28):
+  		veja a primeira referência a 'crow::Connection<Adaptor,Handler>::do_read' em 'crow::Connection<Adaptor,Handler>::start::<lambda_1>::operator ()'
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  
+F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\parser.h(118,25): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'server-cpp.cpp')
+  F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\parser.h(118,25):
+  o contexto de instanciação do modelo (o mais antigo primeiro) é
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(596,32):
+  	consulte a referência à instanciação 'crow::HTTPParser<crow::Connection<Adaptor,Handler>>' do modelo da classe que está sendo compilada
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  	F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\parser.h(103,14):
+  	ao compilar a função de membro 'bool crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed(const char *,int)' do modelo da classe
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  		F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include\crow\http_connection.h(473,32):
+  		veja a primeira referência a 'crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed' em 'crow::Connection<Adaptor,Handler>::do_read::<lambda_1>::operator ()'
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  
+LINK : fatal error LNK1104: não é possível abrir o arquivo 'tbb12_debug.lib'

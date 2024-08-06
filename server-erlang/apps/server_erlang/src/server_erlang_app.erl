@@ -1,15 +1,18 @@
+%% src/server_erlang_app.erl
 -module(server_erlang_app).
 -behaviour(application).
 
-%% API
 -export([start/2, stop/1]).
 
-%% Application callbacks
 start(_StartType, _StartArgs) ->
-    %% Inicie o supervisor principal ou outros processos de inicialização
-    io:format("Starting server_erlang application~n"),
+    Dispatch = cowboy_router:compile([
+        {'_', [{"/websocket", websocket_handler, []}]}
+    ]),
+    {ok, _} = cowboy:start_clear(http_listener, 100,
+        #{port => 3009},
+        #{env => #{dispatch => Dispatch}}
+    ),
     server_erlang_sup:start_link().
 
 stop(_State) ->
-    io:format("Stopping server_erlang application~n"),
     ok.
