@@ -5,15 +5,16 @@ The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM,
 
 |   | Server        | Avg Messages/sec | % Difference |
 |---|---------------|------------------|--------------|
-| 0 | C#            | 2,038,129        | 427.07%      |
-| 1 | Python3       | 169,332          | -56.21%      |
-| 2 | Go            | 141,941.3        | -63.29%      |
-| 3 | Bun           | 131,950.4        | -65.88%      |
-| 4 | uWebsocket.js | 86,801.6         | -77.55%      |
-| 5 | Deno          | 70,829.9         | -81.68%      |
-| 6 | Node          | 67,855.9         | -82.45%      |
+| 0 | Rust          | 3,007,707.8      | 337.82%      |
+| 1 | C#            | 1,819,930        | 164.92%      |
+| 2 | Python3       | 185,285.2        | -73.03%      |
+| 3 | Bun           | 136,835.2        | -80.08%      |
+| 4 | Go            | 118,835.8        | -82.70%      |
+| 5 | uWebsocket.js | 86,810.9         | -87.36%      |
+| 6 | Deno          | 72,728.4         | -89.41%      |
+| 7 | Node          | 67,626.6         | -90.16%      |
 
-Soon implementations in C++, Erlang, Zig, Java and Rust
+Soon implementations in C++, Erlang, Zig and Java
 
 Run in Node
 -------------
@@ -67,9 +68,21 @@ cd server-erlang && rebar3 compile
 Run in Phyton
 -------------
 
-Build
 ```bash
 python3 server-python.py
+```
+
+Run in Rust
+-------------
+
+Build
+```bash
+cd server-rust && cargo build
+```
+
+Run
+```bash
+cd server-rust && cargo run
 ```
 
 ## Client 

@@ -11,13 +11,14 @@ const SERVERS = [
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
   //{ name: "Erlang", url: "ws://0.0.0.0:3009" }, // In implementation
   //{ name: "C++", url: "ws://0.0.0.0:3010" }, // In implementation
+  { name: "Rust", url: "ws://0.0.0.0:3011" },
 ];
 
 const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
 const LOG_MESSAGES = env.LOG_MESSAGES === "1";
 const CLIENTS_TO_WAIT_FOR = 100;
 const DELAY = 64;
-const WAIT_TIME_BETWEEN_TESTS = 20000; // 20 seconds
+const WAIT_TIME_BETWEEN_TESTS = 10000; // 20 seconds
 const MESSAGES_TO_SEND = Array.from({ length: 32 }, () => [
   "Hello World!",
   "Hello World! 1",

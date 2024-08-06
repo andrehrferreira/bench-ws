@@ -15,7 +15,9 @@
 		"build-cpp": "cd server-cpp && g++ -std=c++17 -O3 -o websocket_server server.cpp -luv -lz -lssl -lcrypto -lpthread",
 		"server-python": "python3 server-python.py",
 		"build-zig": "zig build-exe server-zig.zig",
-		"server-zig": "zig server-zig.zig"       
+		"server-zig": "zig server-zig.zig", 
+		"build-rust": "cd server-rust && cargo build", 
+		"server-rust": "cd server-rust && cargo run"      
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",
