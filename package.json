@@ -10,19 +10,22 @@
 		"server-uws": "node server-uws.js",
 		"server-go": "cd server-go && go run server.go",
 		"build-csharp": "cd server-csharp && dotnet build",
-		"server-csharp": "cd server-csharp && dotnet run",    
+		"server-csharp": "cd server-csharp && dotnet run",
 		"build-erland": "cd server-erlang && rebar3 compile",
 		"build-cpp": "cd server-cpp && g++ -std=c++17 -O3 -o websocket_server server.cpp -luv -lz -lssl -lcrypto -lpthread",
 		"server-python": "python3 server-python.py",
 		"build-zig": "zig build-exe server-zig.zig",
-		"server-zig": "zig server-zig.zig", 
-		"build-rust": "cd server-rust && cargo build", 
-		"server-rust": "cd server-rust && cargo run"      
+		"server-zig": "zig server-zig.zig",
+		"build-rust": "cd server-rust && cargo build",
+		"server-rust": "cd server-rust && cargo run",
+		"build-java": "cd server-java && mvn compile",
+		"server-java": "java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar"
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",
 	"dependencies": {
-		"ws": "^8.18.0",
-		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.44.0"
+		"bench-ws": "file:",
+		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.44.0",
+		"ws": "^8.18.0"
 	}
 }

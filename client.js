@@ -12,6 +12,7 @@ const SERVERS = [
   //{ name: "Erlang", url: "ws://0.0.0.0:3009" }, // In implementation
   //{ name: "C++", url: "ws://0.0.0.0:3010" }, // In implementation
   { name: "Rust", url: "ws://0.0.0.0:3011" },
+  { name: "Java", url: "ws://0.0.0.0:3012" },
 ];
 
 const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
