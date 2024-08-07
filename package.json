@@ -6,7 +6,7 @@
 	"scripts": {
 		"server-deno": "deno run -A server-deno.mjs",
 		"server-node": "UV_THREADPOOL_SIZE=8 node server-node.js",
-		"server-bun": "bun server-bun.js",
+		"server-bun": "cd server-bun && bun server-bun.js",
 		"server-uws": "UV_THREADPOOL_SIZE=8 node server-uws.js",
 		"build-go": "cd server-go && go build server.go",
 		"server-go": "cd server-go && ./server",
@@ -15,7 +15,7 @@
 		"build-erland": "cd server-erlang && rebar3 compile",
 		"server-erland": "cd server-erlang && rebar3 shell",
 		"build-cpp": "cd server-cpp && g++ -std=c++17 -O3 -o websocket_server server.cpp -luv -lz -lssl -lcrypto -lpthread",
-		"server-python": "python3 server-python/server-python.py",
+		"server-python": "pypy3 server-python/server-python.py",
 		"build-zig": "zig build-exe server-zig.zig",
 		"server-zig": "zig server-zig.zig",
 		"build-rust": "cd server-rust && cargo build --release",
@@ -24,7 +24,8 @@
 		"server-java": "java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar",
 		"build-exilir": "cd server-elixir && mix compile",
 		"server-exilir": "cd server-rust && mix run --no-halt",
-		"server-swoole": "cd server-swoole && php server.php"
+		"server-swoole": "cd server-swoole && php server.php",
+		"server-nodewt": "cd server-node-wt && node server.js"
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",

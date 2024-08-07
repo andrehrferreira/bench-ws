@@ -5,17 +5,17 @@ The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM.
 
 |    | Server           | Avg Messages/sec | Lost Packets | % Difference |
 |----|------------------|------------------|--------------|--------------|
-|  0 | Rust             | 991099.6         | 0            | 197.91%      |
-|  1 | C#               | 910258.6         | 0            | 173.61%      |
-|  2 | Erlang / Elixir  | 626898.4         | 0            | 88.44%       |
-|  3 | C++ (Crow + TBB) | 527998.4         | 0            | 58.71%       |
-|  4 | Java             | 169504.6         | 0            | -49.05%      |
-|  5 | Bun              | 88640            | 0            | -73.36%      |
-|  6 | Go               | 87936.2          | 0            | -73.57%      |
-|  7 | uWebsocket.js    | 85037.8          | 0            | -74.44%      |
-|  8 | PHP / Swoole     | 77878.2          | 0            | -76.59%      |
-|  9 | Node             | 62807.2          | 0            | -81.12%      |
-| 10 | Python3          | 31420.6          | 0            | -90.56%      |
+|  0 | Rust             | 990420.4         | 0            | 197.95%      |
+|  1 | C#               | 871702.6         | 0            | 162.24%      |
+|  2 | Erlang / Elixir  | 654033.6         | 0            | 96.75%       |
+|  3 | C++ (Crow + TBB) | 518418.2         | 0            | 55.96%       |
+|  4 | Java             | 146882.6         | 0            | -55.81%      |
+|  5 | Bun              | 88682.2          | 0            | -73.32%      |
+|  6 | Go               | 87612.8          | 0            | -73.64%      |
+|  7 | uWebsocket.js    | 82604.8          | 0            | -75.15%      |
+|  8 | PHP / Swoole     | 80273.8          | 0            | -75.85%      |
+|  9 | Python3          | 72891            | 0            | -78.07%      |
+| 10 | Node             | 63003.6          | 0            | -81.05%      |
 | -  | * Deno           | 61,819           | 47           | -80.32%      | 
 
 * Deno has been removed from testing due to memory leek and poor performance issues
@@ -159,6 +159,22 @@ Run in PHP / Swoole
 Run
 ```bash
 $ php ./server-swoole/server.php
+```
+
+Run in Lua
+-------------
+
+Dependeces 
+```bash
+$ luarocks install luasocket
+$ luarocks install lua-websockets
+$ luarocks install copas
+```
+
+Run
+```bash
+$ cd server-lua
+$ lua server.lua
 ```
 
 ## Client 
