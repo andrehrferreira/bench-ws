@@ -1,6 +1,0 @@
--sname server_erlang
-
--setcookie server_erlang_cookie
-
-+K true
-+A30
