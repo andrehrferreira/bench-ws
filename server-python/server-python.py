@@ -1,9 +1,12 @@
 import asyncio
 import websockets
+from concurrent.futures import ThreadPoolExecutor
 
 PORT = 3007
 CLIENTS_TO_WAIT_FOR = 32
 clients = set()
+
+executor = ThreadPoolExecutor(max_workers=4)
 
 async def handle_connection(websocket, path):
     name = f"Client{len(clients) + 1}"
@@ -33,8 +36,12 @@ async def send_ready_message():
     for client in clients:
         await client.send("ready")
 
-start_server = websockets.serve(handle_connection, "localhost", PORT)
+async def start_server():
+    server = await websockets.serve(handle_connection, "localhost", PORT)
+    print(f"Waiting for {CLIENTS_TO_WAIT_FOR} clients to connect...")
+    await server.wait_closed()
 
-print(f"Waiting for {CLIENTS_TO_WAIT_FOR} clients to connect...")
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+loop = asyncio.get_event_loop()
+loop.set_default_executor(executor)
+loop.run_until_complete(start_server())
+loop.run_forever()
