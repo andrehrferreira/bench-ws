@@ -161,22 +161,6 @@ Run
 $ php ./server-swoole/server.php
 ```
 
-Run in Lua
--------------
-
-Dependeces 
-```bash
-$ luarocks install luasocket
-$ luarocks install lua-websockets
-$ luarocks install copas
-```
-
-Run
-```bash
-$ cd server-lua
-$ lua server.lua
-```
-
 ## Client 
 
 To start the test it will be necessary to start all the servers, each one is configured on a port
