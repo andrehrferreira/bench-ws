@@ -9,6 +9,10 @@ class WebSocketServer
     private static readonly int Port = 3006;
     private static readonly int ClientsToWaitFor = 32;
 
+    private static  string readyMessage = "ready";
+    private static  byte[] msgBuffer = Encoding.UTF8.GetBytes(readyMessage);
+    private static  ArraySegment<byte> segment = new ArraySegment<byte>(msgBuffer);
+
     static async Task Main(string[] args)
     {
         HttpListener listener = new();
@@ -63,7 +67,7 @@ class WebSocketServer
         if (clients.Count == ClientsToWaitFor)
         {
             SendReadyMessage();
-            await Task.Delay(230);
+            //await Task.Delay(230);
         }
 
         try
@@ -141,10 +145,6 @@ class WebSocketServer
 
     private static void SendReadyMessage()
     {
-        string readyMessage = "ready";
-        byte[] msgBuffer = Encoding.UTF8.GetBytes(readyMessage);
-        ArraySegment<byte> segment = new ArraySegment<byte>(msgBuffer);
-
         Task.Delay(100).ContinueWith(async _ =>
         {
             var clientsCopy = clients.ToArray();
