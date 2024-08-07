@@ -11,6 +11,7 @@ const SERVERS = [
   { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
   { name: "Rust", url: "ws://0.0.0.0:3011" },
   { name: "Java", url: "ws://0.0.0.0:3012" },
+  { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
 ];
 
