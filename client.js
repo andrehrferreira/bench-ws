@@ -12,6 +12,7 @@ const SERVERS = [
   { name: "Rust", url: "ws://0.0.0.0:3011" },
   { name: "Java", url: "ws://0.0.0.0:3012" },
   { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
+  //{ name: "Node (Worker Thread)", url: "ws://0.0.0.0:3014" },
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
 ];
 

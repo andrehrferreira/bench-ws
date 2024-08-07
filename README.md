@@ -3,19 +3,20 @@ Benchmark Websocket
 
 The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM.
 
-|   | Server           | Avg Messages/sec | Lost Packets | % Difference |
-|---|------------------|------------------|--------------|--------------|
-| 0 | Rust             | 947184.2         | 0            | 162.88%      |
-| 1 | C#               | 912115.6         | 0            | 153.15%      |
-| 2 | Erlang / Elixir  | 662187.4         | 0            | 83.78%       |
-| 3 | C++ (Crow + TBB) | 544027.4         | 0            | 50.99%       |
-| 4 | Java             | 133235.6         | 0            | -63.02%      |
-| 5 | Go               | 90075.2          | 0            | -75.00%      |
-| 6 | Bun              | 88235.2          | 0            | -75.51%      |
-| 7 | uWebsocket.js    | 86597.2          | 0            | -75.97%      |
-| 8 | Python3          | 74816.8          | 0            | -79.24%      |
-| 9 | Node             | 64610.2          | 0            | -82.07%      |
-| - | * Deno           | 61,819           | 47           | -80.32%      | 
+|    | Server           | Avg Messages/sec | Lost Packets | % Difference |
+|----|------------------|------------------|--------------|--------------|
+|  0 | Rust             | 990420.4         | 0            | 197.95%      |
+|  1 | C#               | 871702.6         | 0            | 162.24%      |
+|  2 | Erlang / Elixir  | 654033.6         | 0            | 96.75%       |
+|  3 | C++ (Crow + TBB) | 518418.2         | 0            | 55.96%       |
+|  4 | Java             | 146882.6         | 0            | -55.81%      |
+|  5 | Bun              | 88682.2          | 0            | -73.32%      |
+|  6 | Go               | 87612.8          | 0            | -73.64%      |
+|  7 | uWebsocket.js    | 82604.8          | 0            | -75.15%      |
+|  8 | PHP / Swoole     | 80273.8          | 0            | -75.85%      |
+|  9 | Python3          | 72891            | 0            | -78.07%      |
+| 10 | Node             | 63003.6          | 0            | -81.05%      |
+| -  | * Deno           | 61,819           | 47           | -80.32%      | 
 
 * Deno has been removed from testing due to memory leek and poor performance issues
 
@@ -54,25 +55,26 @@ Run in C#
 
 Build
 ```bash
-$ cd server-csharp && dotnet build
+$ cd server-csharp 
+$ dotnet build
 ```
 
 Run
 ```bash
-$ cd server-csharp && dotnet run
+$ dotnet run
 ```
 
-Run in Elixir
+Run in Erlang / Elixir
 -------------
 
 Depedences 
 ```bash
 $ mix deps.get 
-
 ```
 
 Build
 ```bash
+$ cd server_elixir
 $ mix deps.compile
 ```
 
@@ -81,7 +83,7 @@ Run
 $ mix run --no-halt
 ```
 
-Run in Phyton
+Run in Phyton 3
 -------------
 
 Depedences 
@@ -92,6 +94,7 @@ $ pip install gevent-websocket
 
 Run
 ```bash
+$ cd server-python
 $ python server-python.py
 ```
 
@@ -100,12 +103,13 @@ Run in Rust
 
 Build
 ```bash
-$ cargo build
+$ cd server-rust
+$ cargo build --release
 ```
 
 Run
 ```bash
-$ cargo run
+$ ./target/release/server-rust
 ```
 
 Run in Java
@@ -113,12 +117,27 @@ Run in Java
 
 Build
 ```bash
+$ cd server-java
 $ mvn compile
 ```
 
 Run
 ```bash
 $ java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
+Run in Go
+-------------
+
+Build
+```bash
+$ cd server-go
+$ go build
+```
+
+Run
+```bash
+$ ./server
 ```
 
 Run in C++ (Crow + TBB)
@@ -132,6 +151,30 @@ $ vcpkg install
 Run
 ```bash
 $ server-cpp/x64/Release/server-cpp.exe
+```
+
+Run in PHP / Swoole
+-------------
+
+Run
+```bash
+$ php ./server-swoole/server.php
+```
+
+Run in Lua
+-------------
+
+Dependeces 
+```bash
+$ luarocks install luasocket
+$ luarocks install lua-websockets
+$ luarocks install copas
+```
+
+Run
+```bash
+$ cd server-lua
+$ lua server.lua
 ```
 
 ## Client 
