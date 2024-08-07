@@ -1,6 +1,6 @@
-//see https://github.com/oven-sh/bun/blob/main/bench/websocket-server/chat-server.deno.mjs
+// see https://github.com/oven-sh/bun/blob/main/bench/websocket-server/chat-server.deno.mjs
 const port = Deno.env.get("PORT") || 3003;
-const CLIENTS_TO_WAIT_FOR = parseInt(Deno.env.get("CLIENTS_COUNT") || "", 10) || 100;
+const CLIENTS_TO_WAIT_FOR = parseInt(Deno.env.get("CLIENTS_COUNT") || "", 10) || 32;
 
 var clients = [];
 async function reqHandler(req) {
@@ -16,10 +16,13 @@ async function reqHandler(req) {
 
   client.onmessage = event => {
     const msg = `${name}: ${event.data}`;
-    for (let client of clients) {
-      client.send(msg);
+    for (let otherClient of clients) {
+      if (otherClient !== client) {
+        otherClient.send(msg);
+      }
     }
   };
+
   client.onclose = () => {
     clients.splice(clients.indexOf(client), 1);
   };

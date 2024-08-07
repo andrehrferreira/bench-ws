@@ -74,7 +74,7 @@
     <PublicIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PublicIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\lib;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -126,13 +126,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Node\bench-ws\server-cpp\external\oneapi-tbb-2021.13.0\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\vcpkg\pkgs\asio_x64-windows\include;F:/Node/bench-ws/server-cpp/vcpkg_installed/vcpkg/pkgs/asio_x64-windows;F:\Node\bench-ws\server-cpp\external\crow\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(SolutionDir)\uWebSockets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\include;F:\Node\bench-ws\server-cpp\external\oneapi-tbb-2021.13.0\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\vcpkg\pkgs\asio_x64-windows\include;F:/Node/bench-ws/server-cpp/vcpkg_installed/vcpkg/pkgs/asio_x64-windows;F:\Node\bench-ws\server-cpp\external\crow\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\include;F:\Node\bench-ws\server-cpp\vcpkg_installed\x86-windows\lib;$(SolutionDir)\uWebSockets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>F:\Node\bench-ws\server-cpp\vcpkg_installed\x64-windows\lib\tbb12.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

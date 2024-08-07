@@ -50,7 +50,7 @@ async fn send_ready_message(clients: Clients) {
 #[tokio::main]
 async fn main() {
     let port: u16 = env::var("PORT").unwrap_or_else(|_| "3011".to_string()).parse().unwrap();
-    let clients_to_wait_for: usize = env::var("CLIENTS_COUNT").unwrap_or_else(|_| "100".to_string()).parse().unwrap();
+    let clients_to_wait_for: usize = env::var("CLIENTS_COUNT").unwrap_or_else(|_| "32".to_string()).parse().unwrap();
 
     let clients = Arc::new(Mutex::new(Vec::new()));
     let listener = TcpListener::bind(format!("0.0.0.0:{}", port)).await.unwrap();

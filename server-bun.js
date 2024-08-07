@@ -1,7 +1,7 @@
 import { serve } from "bun";
 
 const port = 3004;
-const CLIENTS_TO_WAIT_FOR = 100;
+const CLIENTS_TO_WAIT_FOR = 32;
 const clients = new Set();
 
 const server = serve({

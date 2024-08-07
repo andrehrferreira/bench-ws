@@ -7,7 +7,7 @@ class WebSocketServer
 {
     private static readonly ConcurrentDictionary<WebSocket, (string, SemaphoreSlim)> clients = new();
     private static readonly int Port = 3006;
-    private static readonly int ClientsToWaitFor = 100;
+    private static readonly int ClientsToWaitFor = 32;
 
     static async Task Main(string[] args)
     {

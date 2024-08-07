@@ -1,7 +1,7 @@
 const uWS = require('uWebSockets.js');
 
 const port = 3002;
-const CLIENTS_TO_WAIT_FOR = 100;
+const CLIENTS_TO_WAIT_FOR = 32;
 const clients = new Set();
 
 const app = uWS.App().ws('/*', {

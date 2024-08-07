@@ -1,0 +1,15 @@
+F:\Node\bench-ws\server-csharp\bin\Release\net8.0\server-csharp.exe
+F:\Node\bench-ws\server-csharp\bin\Release\net8.0\server-csharp.deps.json
+F:\Node\bench-ws\server-csharp\bin\Release\net8.0\server-csharp.runtimeconfig.json
+F:\Node\bench-ws\server-csharp\bin\Release\net8.0\server-csharp.dll
+F:\Node\bench-ws\server-csharp\bin\Release\net8.0\server-csharp.pdb
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.GeneratedMSBuildEditorConfig.editorconfig
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.AssemblyInfoInputs.cache
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.AssemblyInfo.cs
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.csproj.CoreCompileInputs.cache
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.sourcelink.json
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.dll
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\refint\server-csharp.dll
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.pdb
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\server-csharp.genruntimeconfig.cache
+F:\Node\bench-ws\server-csharp\obj\Release\net8.0\ref\server-csharp.dll

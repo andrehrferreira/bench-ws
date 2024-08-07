@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class WebSocketChatServer extends WebSocketServer {
     private static final int PORT = 3012;
-    private static final int CLIENTS_TO_WAIT_FOR = 100;
+    private static final int CLIENTS_TO_WAIT_FOR = 32;
 
     private final Set<WebSocket> clients = Collections.synchronizedSet(new HashSet<>());
 
