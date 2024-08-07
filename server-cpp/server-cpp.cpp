@@ -9,9 +9,9 @@ tbb::concurrent_unordered_set<crow::websocket::connection*> clients;
 
 void sendReadyMessage() {
     std::cout << "Todos os clientes conectados" << std::endl;
-    for (auto& client : clients) {
+
+    for (auto& client : clients) 
         client->send_text("ready");
-    }
 }
 
 int main() {
@@ -20,28 +20,27 @@ int main() {
     CROW_ROUTE(app, "/")
         .websocket()
         .onopen([](crow::websocket::connection& conn) {
-        clients.insert(&conn);
-        std::string name = "Client" + std::to_string(clients.size());
-        std::cout << name << " conectado (" << CLIENTS_TO_WAIT_FOR - clients.size() << " restantes)" << std::endl;
+            clients.insert(&conn);
+            std::string name = "Client" + std::to_string(clients.size());
+            std::cout << name << " conectado (" << CLIENTS_TO_WAIT_FOR - clients.size() << " restantes)" << std::endl;
 
-        if (clients.size() == CLIENTS_TO_WAIT_FOR) {
-            sendReadyMessage();
-        }
-            })
+            if (clients.size() == CLIENTS_TO_WAIT_FOR) 
+                sendReadyMessage();
+        })
         .onclose([](crow::websocket::connection& conn, const std::string& reason) {
-                auto it = clients.find(&conn);
-                if (it != clients.end()) {
-                    clients.unsafe_erase(it); // Usando unsafe_erase para remover o elemento
-                }
-                std::cout << "Conexão WebSocket fechada: " << reason << std::endl;
-            })
-                .onmessage([](crow::websocket::connection& conn, const std::string& data, bool is_binary) {
-                for (auto& client : clients) {
-                    if (client != &conn) {
-                        client->send_text(data);
-                    }
-                }
-                    });
+            auto it = clients.find(&conn);
 
-            app.port(3010).run();
+            if (it != clients.end()) 
+                clients.unsafe_erase(it); 
+                
+            std::cout << "Conexão WebSocket fechada: " << reason << std::endl;
+        })
+        .onmessage([](crow::websocket::connection& conn, const std::string& data, bool is_binary) {
+            for (auto& client : clients) {
+                if (client != &conn) 
+                    client->send_text(data);
+            }
+        });
+
+    app.port(3010).run();
 }

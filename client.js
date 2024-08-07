@@ -14,7 +14,6 @@ const SERVERS = [
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
   //{ name: "Erlang", url: "ws://0.0.0.0:3009" }, // In implementation
   //{ name: "C++", url: "ws://0.0.0.0:3010" }, // In implementation
-  
   //{ name: "Elixir", url: "ws://0.0.0.0:3013" }, // In implementation
 ];
 
