@@ -2,19 +2,19 @@ const env = typeof process !== 'undefined' ? process.env : (typeof Deno !== 'und
 
 const SERVERS = [  
   { name: "Node", url: "ws://0.0.0.0:3001" },
-  { name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },
-  { name: "Deno", url: "ws://0.0.0.0:3003" },
+  { name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },  
   { name: "Bun", url: "ws://0.0.0.0:3004" },
   { name: "Go", url: "ws://0.0.0.0:3005" },
   { name: "C#", url: "ws://0.0.0.0:3006" },
-  { name: "Phyton3", url: "ws://0.0.0.0:3007" },
+  { name: "Phyton3", url: "ws://0.0.0.0:3007" },  
+  { name: "Erlang / Elixir", url: "ws://0.0.0.0:3009" },
+  { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
   { name: "Rust", url: "ws://0.0.0.0:3011" },
   { name: "Java", url: "ws://0.0.0.0:3012" },
-  { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
-  //{ name: "Erlang", url: "ws://0.0.0.0:3009" }, // In implementation
-  //{ name: "Elixir", url: "ws://0.0.0.0:3013" }, // In implementation
 ];
+
+//{ name: "Deno", url: "ws://0.0.0.0:3003" },
 
 const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
 const LOG_MESSAGES = env.LOG_MESSAGES === "1";

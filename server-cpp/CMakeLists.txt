@@ -1,14 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 
-
-# isso é gerado heuristicamente e pode não estar correto
-  find_package(Crow CONFIG REQUIRED)
-  target_link_libraries(main PRIVATE Crow::Crow)
-
-find_package(TBB CONFIG REQUIRED)
-  target_link_libraries(main PRIVATE TBB::tbb TBB::tbbmalloc TBB::tbbmalloc_proxy)
-
-
 # Nome do projeto
 project(Server)
 
@@ -19,8 +10,8 @@ set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Inclui o diretório dos headers
-include_directories(${CMAKE_SOURCE_DIR}/include)
+# Configuração para buscar pacotes do vcpkg
+set(CMAKE_TOOLCHAIN_FILE "/mnt/c/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
 # Lista de arquivos fonte
 file(GLOB SOURCES "src/*.cpp")
@@ -28,21 +19,21 @@ file(GLOB SOURCES "src/*.cpp")
 # Adiciona o executável
 add_executable(Server ${SOURCES})
 
-# Biblioteca ou pacotes adicionais podem ser linkados aqui
-# Por exemplo:
-# find_package(SomeLibrary REQUIRED)
-# target_link_libraries(Server SomeLibrary::SomeLibrary)
-
-# Adiciona suporte ao ASIO se necessário
+# Encontrar pacotes necessários
+find_package(Crow CONFIG REQUIRED)
+find_package(TBB CONFIG REQUIRED)
 find_package(asio CONFIG REQUIRED)
-target_link_libraries(Server asio::asio)
 
-# Especifica diretórios para buscar bibliotecas e includes (se necessário)
-# target_include_directories(Server PRIVATE ${CMAKE_SOURCE_DIR}/path/to/includes)
-# target_link_directories(Server PRIVATE ${CMAKE_SOURCE_DIR}/path/to/libs)
+# Adiciona os caminhos do ASIO
+set(ASIO_INCLUDE_DIR "/mnt/c/vcpkg/installed/x64-linux/include")
+include_directories(${ASIO_INCLUDE_DIR})
 
-# Configuração para buscar pacotes do vcpkg
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+# Adiciona o caminho da biblioteca ASIO
+set(ASIO_LIBRARY "/mnt/c/vcpkg/installed/x64-linux/lib")
+link_directories(${ASIO_LIBRARY})
+
+# Linkar bibliotecas
+target_link_libraries(Server PRIVATE Crow::Crow TBB::tbb TBB::tbbmalloc TBB::tbbmalloc_proxy asio::asio)
 
 # Definir configurações de compilação adicionais (opcional)
 if (MSVC)

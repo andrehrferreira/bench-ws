@@ -20,7 +20,9 @@
 		"build-rust": "cd server-rust && cargo build",
 		"server-rust": "cd server-rust && cargo run",
 		"build-java": "cd server-java && mvn compile",
-		"server-java": "java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar"
+		"server-java": "java -jar server-java/target/server-1.0-SNAPSHOT-jar-with-dependencies.jar",
+		"build-exilir": "cd server-elixir && mix compile",
+		"server-exilir": "cd server-rust && mix run --no-halt"
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",

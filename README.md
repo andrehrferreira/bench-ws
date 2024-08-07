@@ -1,22 +1,25 @@
 Benchmark Websocket
 =========================
 
-The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM,
+The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM.
 
-| #  | Server           | Avg Messages/sec | Lost Packets | % Difference |
-|----|------------------|------------------|--------------|--------------|
-| 0  | Rust             | 1,027,930.4      | 0            | 227.24%      |
-| 1  | C#               | 910,847.2        | 0            | 189.97%      |
-| 2  | C++ (Crow + TBB) | 546,900.8        | 0            | 74.10%       |
-| 3  | Java             | 201,114.4        | 0            | -35.98%      |
-| 4  | Bun              | 89,689           | 0            | -71.45%      |
-| 5  | Go               | 89,075.6         | 0            | -71.64%      |
-| 6  | uWebsocket.js    | 87,573.6         | 0            | -72.12%      |
-| 7  | Node             | 63,247.4         | 0            | -79.87%      |
-| 8  | Phyton3          | 63,018.4         | 0            | -79.94%      |
-| 9  | Deno             | 61,819           | 47           | -80.32%      |
+|   | Server           | Avg Messages/sec | Lost Packets | % Difference |
+|---|------------------|------------------|--------------|--------------|
+| 0 | Rust             | 947184.2         | 0            | 162.88%      |
+| 1 | C#               | 912115.6         | 0            | 153.15%      |
+| 2 | Erlang / Elixir  | 662187.4         | 0            | 83.78%       |
+| 3 | C++ (Crow + TBB) | 544027.4         | 0            | 50.99%       |
+| 4 | Java             | 133235.6         | 0            | -63.02%      |
+| 5 | Go               | 90075.2          | 0            | -75.00%      |
+| 6 | Bun              | 88235.2          | 0            | -75.51%      |
+| 7 | uWebsocket.js    | 86597.2          | 0            | -75.97%      |
+| 8 | Python3          | 74816.8          | 0            | -79.24%      |
+| 9 | Node             | 64610.2          | 0            | -82.07%      |
+| - | * Deno           | 61,819           | 47           | -80.32%      | 
 
-Soon implementations in Erlang, Elixir and Zig 
+* Deno has been removed from testing due to memory leek and poor performance issues
+
+* Soon implementations in Zig 
 
 Run in Node
 -------------
@@ -59,12 +62,23 @@ Run
 $ cd server-csharp && dotnet run
 ```
 
-Run in Erlang
+Run in Elixir
 -------------
+
+Depedences 
+```bash
+$ mix deps.get 
+
+```
 
 Build
 ```bash
-$ cd server-erlang && rebar3 compile
+$ mix deps.compile
+```
+
+Run
+```bash
+$ mix run --no-halt
 ```
 
 Run in Phyton
@@ -86,12 +100,12 @@ Run in Rust
 
 Build
 ```bash
-$ cd server-rust && cargo build
+$ cargo build
 ```
 
 Run
 ```bash
-$ cd server-rust && cargo run
+$ cargo run
 ```
 
 Run in Java
@@ -99,7 +113,7 @@ Run in Java
 
 Build
 ```bash
-$ cd server-java && mvn compile
+$ mvn compile
 ```
 
 Run
