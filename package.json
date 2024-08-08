@@ -8,8 +8,8 @@
 		"server-node": "UV_THREADPOOL_SIZE=8 node server-node.js",
 		"server-bun": "cd server-bun && bun server-bun.js",
 		"server-uws": "UV_THREADPOOL_SIZE=8 node server-uws.js",
-  "build-go": "cd server-go && go build server.go",
-		"server-go": "cd server-go && go run server.go",
+		"build-go": "cd server-go && go build server.go",
+		"server-go": "cd server-go && ./server",
 		"build-csharp": "cd server-csharp && dotnet build --configuration Release",
 		"server-csharp": "cd server-csharp && cd bin && cd Release && cd net8.0 && dotnet server-csharp.dll",
 		"build-erland": "cd server-erlang && rebar3 compile",
@@ -25,7 +25,9 @@
 		"build-exilir": "cd server-elixir && mix compile",
 		"server-exilir": "cd server-rust && mix run --no-halt",
 		"server-swoole": "cd server-swoole && php server.php",
-		"server-nodewt": "cd server-node-wt && node server.js"
+		"server-nodewt": "cd server-node-wt && node server.js",
+		"build-go-fasthttp": "cd server-go && go build server-fasthttp.go",
+		"server-go-fasthttp": "cd server-go && ./server-fasthttp"
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",
