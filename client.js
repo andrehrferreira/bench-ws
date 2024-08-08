@@ -6,11 +6,13 @@ const SERVERS = [
   { name: "Bun", url: "ws://0.0.0.0:3004" },
   { name: "Go", url: "ws://0.0.0.0:3005" },
   { name: "C#", url: "ws://0.0.0.0:3006" },
-  { name: "Phyton3", url: "ws://0.0.0.0:3007" },  
+  { name: "Phyton3", url: "ws://0.0.0.0:3007/ws" },  
   { name: "Erlang / Elixir", url: "ws://0.0.0.0:3009" },
   { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
   { name: "Rust", url: "ws://0.0.0.0:3011" },
   { name: "Java", url: "ws://0.0.0.0:3012" },
+  { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
+  { name: "Node (Worker Thread)", url: "ws://0.0.0.0:3014" },
   //{ name: "Zig", url: "ws://0.0.0.0:3008" }, // In implementation
 ];
 

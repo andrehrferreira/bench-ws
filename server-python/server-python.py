@@ -39,8 +39,10 @@ async def send_ready_message():
         await client.send_str("ready")
 
 app = web.Application()
+
 app.add_routes([web.get('/', websocket_handler)])
 
 if __name__ == "__main__":
     print(f"Waiting for {CLIENTS_TO_WAIT_FOR} clients to connect...")
     web.run_app(app, port=3007)
+
