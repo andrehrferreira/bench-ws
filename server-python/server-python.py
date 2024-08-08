@@ -34,13 +34,15 @@ async def broadcast_message(message, sender):
 async def send_ready_message():
     print("All clients connected")
     await asyncio.sleep(0.1)
-    print("Starting benchmark")
+    print("Starting....")
     for client in clients:
         await client.send_str("ready")
 
 app = web.Application()
-app.add_routes([web.get('/ws', websocket_handler)])
+
+app.add_routes([web.get('/', websocket_handler)])
 
 if __name__ == "__main__":
     print(f"Waiting for {CLIENTS_TO_WAIT_FOR} clients to connect...")
     web.run_app(app, port=3007)
+
