@@ -1,47 +1,46 @@
 import asyncio
-import websockets
-from concurrent.futures import ThreadPoolExecutor
+from aiohttp import web
 
-PORT = 3007
 CLIENTS_TO_WAIT_FOR = 32
 clients = set()
 
-executor = ThreadPoolExecutor(max_workers=4)
+async def websocket_handler(request):
+    ws = web.WebSocketResponse()
+    await ws.prepare(request)
 
-async def handle_connection(websocket, path):
     name = f"Client{len(clients) + 1}"
-    clients.add(websocket)
+    clients.add(ws)
     print(f"{name} connected ({CLIENTS_TO_WAIT_FOR - len(clients)} remain)")
 
     if len(clients) == CLIENTS_TO_WAIT_FOR:
         await send_ready_message()
 
     try:
-        async for message in websocket:
-            await broadcast_message(message, websocket)
+        async for msg in ws:
+            if msg.type == web.WSMsgType.TEXT:
+                await broadcast_message(msg.data, ws)
     finally:
-        clients.remove(websocket)
+        clients.remove(ws)
         print(f"{name} disconnected")
+
+    return ws
 
 async def broadcast_message(message, sender):
     msg = f"Message from server: {message}"
     for client in clients:
         if client != sender:
-            await client.send(msg)
+            await client.send_str(msg)
 
 async def send_ready_message():
     print("All clients connected")
     await asyncio.sleep(0.1)
-    print("Starting benchmark")
+    print("Starting....")
     for client in clients:
-        await client.send("ready")
+        await client.send_str("ready")
 
-async def start_server():
-    server = await websockets.serve(handle_connection, "localhost", PORT)
+app = web.Application()
+app.add_routes([web.get('/', websocket_handler)])
+
+if __name__ == "__main__":
     print(f"Waiting for {CLIENTS_TO_WAIT_FOR} clients to connect...")
-    await server.wait_closed()
-
-loop = asyncio.get_event_loop()
-loop.set_default_executor(executor)
-loop.run_until_complete(start_server())
-loop.run_forever()
+    web.run_app(app, port=3007)
