@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jsmbsgb8WYE=",
+  "dgSpecHash": "dwkXnwI6quG8/GuMYVRW7iES9xhBeWtCxWBiXMvuZAjea5sSEgMyknXzESeb5VnK93Id7T62rOHVlCMCLSxGAg==",
   "success": true,
-  "projectFilePath": "/mnt/f/Node/bench-ws/server-csharp/server-csharp.csproj",
+  "projectFilePath": "F:\\Node\\bench-ws\\server-csharp\\server-csharp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

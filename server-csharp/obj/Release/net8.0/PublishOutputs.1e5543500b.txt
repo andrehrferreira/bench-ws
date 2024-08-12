@@ -1,0 +1,5 @@
+F:\Node\bench-ws\server-csharp\out\server-csharp.exe
+F:\Node\bench-ws\server-csharp\out\server-csharp.dll
+F:\Node\bench-ws\server-csharp\out\server-csharp.deps.json
+F:\Node\bench-ws\server-csharp\out\server-csharp.runtimeconfig.json
+F:\Node\bench-ws\server-csharp\out\server-csharp.pdb

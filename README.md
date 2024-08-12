@@ -1,7 +1,10 @@
 Benchmark Websocket
 =========================
 
-The result so far is on an Intel Core i9 10980XE desktop, 256GB of DDR RAM.
+The result so far is an Intel Core i9 10980XE desktop, 256GB DDR RAM, individual Docker configuration for each server
+
+
+The result so far is an Intel Core i9 10980XE desktop, 256GB of DDR RAM, using WSL and manual configuration.
 
 |    | Server           | Avg Messages/sec | Lost Packets | % Difference |
 |----|------------------|------------------|--------------|--------------|
