@@ -1,0 +1,15 @@
+{
+	"name": "server-uwebsocket",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"author": "Andre Ferreira",
+	"license": "MIT",
+	"dependencies": {
+		"server-uwebsocket": "file:",
+		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.44.0"
+	}
+}

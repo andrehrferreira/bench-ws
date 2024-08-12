@@ -1,0 +1,15 @@
+FROM golang:1.20-alpine
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+
+RUN go mod download
+
+COPY . .
+
+RUN go build -o server-gorilla .
+
+EXPOSE 3005
+
+CMD ["./server-gorilla"]

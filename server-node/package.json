@@ -1,0 +1,15 @@
+{
+	"name": "server-node",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server-node.js"
+	},
+	"author": "Andre Ferreira",
+	"license": "MIT",
+	"dependencies": {
+		"server-node": "file:",
+		"ws": "^8.18.0"
+	}
+}
