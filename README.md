@@ -3,6 +3,20 @@ Benchmark Websocket
 
 The result so far is an Intel Core i9 10980XE desktop, 256GB DDR RAM, individual Docker configuration for each server
 
+|    | Server           | Avg Messages/sec | Lost Packets | % Difference |
+|----|------------------|------------------|--------------|--------------|
+|  0 | Rust             | 1,232,041.4      | 0            | 133.48%      |
+|  1 | Java             | 1,175,892        | 0            | 122.84%      |
+|  2 | C#               | 1,132,847.8      | 0            | 114.68%      |
+|  3 | C++ (Crow + TBB) | 504,620.8        | 0            | -4.37%       |
+|  4 | PHP / Swoole     | 485,236.6        | 0            | -8.04%       |
+|  5 | Erlang / Elixir  | 296,681.2        | 0            | -43.78%      |
+|  6 | Bun              | 266,875.2        | 0            | -49.42%      |
+|  7 | Go               | 263,391.2        | 0            | -50.09%      |
+|  8 | Python3          | 191,937          | 0            | -63.63%      |
+|  9 | Node             | 154,831.2        | 0            | -70.66%      |
+| 10 | uWebsocket.js    | 100,140.4        | 0            | -81.02%      |
+
 
 The result so far is an Intel Core i9 10980XE desktop, 256GB of DDR RAM, using WSL and manual configuration.
 

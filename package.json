@@ -25,7 +25,8 @@
 		"server-java": "docker run -p 3012:3012 server-java",
 		"build-exilir": "docker build -t server-elixir .",
 		"server-exilir": "docker run -p 3009:3009 server-elixir",
-		"server-swoole": "cd server-swoole && php server.php",
+		"build-swoole": "docker build -t server-swoole .",
+		"server-swoole": "docker run -p 3013:3013 server-swoole",
 		"server-nodewt": "cd server-node-wt && node server.js",
 		"build-go-fasthttp": "cd server-go && go build server-fasthttp.go",
 		"server-go-fasthttp": "cd server-go && ./server-fasthttp"
