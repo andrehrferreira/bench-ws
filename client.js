@@ -1,7 +1,9 @@
-const env = typeof process !== 'undefined' ? process.env : (typeof Deno !== 'undefined' ? Deno.env.toObject() : {});
+const WebSocket = require('ws');
 
-const SERVERS = [  
-  /*{ name: "Node", url: "ws://0.0.0.0:3001" },
+const env = process.env;
+
+const SERVERS = [
+  { name: "Node", url: "ws://0.0.0.0:3001" },
   { name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },  
   { name: "Bun", url: "ws://0.0.0.0:3004" },
   { name: "Go", url: "ws://0.0.0.0:3005" },
@@ -11,13 +13,12 @@ const SERVERS = [
   { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
   { name: "Rust", url: "ws://0.0.0.0:3011" },
   { name: "Java", url: "ws://0.0.0.0:3012" },
-  { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },*/
-  { name: "Dart", url: "ws://0.0.0.0:3016" }
+  { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
+  { name: "Zig", url: "ws://0.0.0.0:3008" }, 
+  { name: "Dart", url: "ws://0.0.0.0:3016" },
+  { name: "Ruby", url: "ws://0.0.0.0:3015" }
 ];
 
-//{ name: "Deno", url: "ws://0.0.0.0:3003" },
-
-const WebSocket = typeof globalThis.WebSocket !== 'undefined' ? globalThis.WebSocket : (await import("bun")).WebSocket;
 const LOG_MESSAGES = env.LOG_MESSAGES === "1";
 const CLIENTS_TO_WAIT_FOR = 100;
 const DELAY = 64;
@@ -89,12 +90,12 @@ async function testServer(server) {
     clients[i] = new WebSocket(`${server.url}?name=${NAMES[i]}`);
     promises.push(
       new Promise((resolve, reject) => {
-        clients[i].onopen = () => {
+        clients[i].on('open', () => {
           resolve();
-        };
-        clients[i].onerror = (err) => {
+        });
+        clients[i].on('error', (err) => {
           reject(err);
-        };
+        });
       })
     );
   }
@@ -103,10 +104,10 @@ async function testServer(server) {
   console.timeEnd(`All clients connected to ${server.name}`);
 
   for (let i = 0; i < CLIENTS_TO_WAIT_FOR; i++) {
-    clients[i].onmessage = (event) => {
-      if (LOG_MESSAGES) console.log(event.data);
+    clients[i].on('message', (event) => {
+      if (LOG_MESSAGES) console.log(event);
       received++;
-    };
+    });
   }
 
   function sendMessagesContinuously() {

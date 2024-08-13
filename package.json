@@ -29,7 +29,9 @@
 		"server-swoole": "docker run -p 3013:3013 server-swoole",
 		"server-nodewt": "cd server-node-wt && node server.js",
 		"build-go-fasthttp": "cd server-go && go build server-fasthttp.go",
-		"server-go-fasthttp": "cd server-go && ./server-fasthttp"
+		"server-go-fasthttp": "cd server-go && ./server-fasthttp",
+		"build-dart": "docker build -t server-dart .",
+		"server-dart": "docker run -p 3016:3016 server-dart"
 	},
 	"author": "Andre Ferreira",
 	"license": "MIT",

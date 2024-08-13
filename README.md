@@ -3,37 +3,39 @@ Benchmark Websocket
 
 The result so far is an Intel Core i9 10980XE desktop, 256GB DDR RAM, individual Docker configuration for each server
 
-|    | Server           | Avg Messages/sec | Lost Packets | % Difference |
-|----|------------------|------------------|--------------|--------------|
-|  0 | Rust             | 1,232,041.4      | 0            | 133.48%      |
-|  1 | Java             | 1,175,892        | 0            | 122.84%      |
-|  2 | C#               | 1,132,847.8      | 0            | 114.68%      |
-|  3 | C++ (Crow + TBB) | 504,620.8        | 0            | -4.37%       |
-|  4 | PHP / Swoole     | 485,236.6        | 0            | -8.04%       |
-|  5 | Erlang / Elixir  | 296,681.2        | 0            | -43.78%      |
-|  6 | Bun              | 266,875.2        | 0            | -49.42%      |
-|  7 | Go               | 263,391.2        | 0            | -50.09%      |
-|  8 | Python3          | 191,937          | 0            | -63.63%      |
-|  9 | Node             | 154,831.2        | 0            | -70.66%      |
-| 10 | uWebsocket.js    | 100,140.4        | 0            | -81.02%      |
-
+| (index) | Server           | Avg Messages/sec | % Difference |
+|---------|------------------|------------------|--------------|
+| 0       | Rust             | 1,232,041.4      | 541.60%      |
+| 1       | Java             | 1,175,892        | 516.41%      |
+| 2       | C#               | 1,132,847.8      | 496.48%      |
+| 3       | C++ (Crow + TBB) | 504,620.8        | 157.50%      |
+| 4       | PHP / Swoole     | 485,236.6        | 149.58%      |
+| 5       | Erlang / Elixir  | 296,681.2        | 66.95%       |
+| 6       | Bun              | 266,875.2        | 53.20%       |
+| 7       | Go               | 263,391.2        | 51.51%       |
+| 8       | Python3          | 191,937          | 16.15%       |
+| 9       | Node             | 154,831.2        | -4.33%       |
+| 10      | uWebsocket.js    | 100,140.4        | -33.47%      |
+| 11      | Dart             | 6,936.8          | -95.12%      |
+| 12      | Ruby             | 3,456.4          | -97.51%      |
 
 The result so far is an Intel Core i9 10980XE desktop, 256GB of DDR RAM, using WSL and manual configuration.
 
-|    | Server           | Avg Messages/sec | Lost Packets | % Difference |
-|----|------------------|------------------|--------------|--------------|
-|  0 | Rust             | 990420.4         | 0            | 197.95%      |
-|  1 | C#               | 871702.6         | 0            | 162.24%      |
-|  2 | Erlang / Elixir  | 654033.6         | 0            | 96.75%       |
-|  3 | C++ (Crow + TBB) | 518418.2         | 0            | 55.96%       |
-|  4 | Java             | 146882.6         | 0            | -55.81%      |
-|  5 | Bun              | 88682.2          | 0            | -73.32%      |
-|  6 | Go               | 87612.8          | 0            | -73.64%      |
-|  7 | uWebsocket.js    | 82604.8          | 0            | -75.15%      |
-|  8 | PHP / Swoole     | 80273.8          | 0            | -75.85%      |
-|  9 | Python3          | 72891            | 0            | -78.07%      |
-| 10 | Node             | 63003.6          | 0            | -81.05%      |
-| -  | * Deno           | 61,819           | 47           | -80.32%      | 
+|    | Server           | Avg Messages/sec | % Difference |
+|----|------------------|------------------|--------------|
+|  0 | Rust             | 990,420.4        | 315.79%      |
+|  1 | C#               | 871,702.6        | 265.95%      |
+|  2 | Erlang / Elixir  | 654,033.6        | 156.37%      |
+|  3 | C++ (Crow + TBB) | 518,418.2        | 90.88%       |
+|  4 | Java             | 146,882.6        | -57.73%      |
+|  5 | Bun              | 88,682.2         | -76.19%      |
+|  6 | Go               | 87,612.8         | -76.53%      |
+|  7 | uWebsocket.js    | 82,604.8         | -78.24%      |
+|  8 | PHP / Swoole     | 80,273.8         | -79.00%      |
+|  9 | Python3          | 72,891.0         | -81.36%      |
+| 10 | Node             | 63,003.6         | -84.76%      |
+| 11 | * Deno           | 61,819.0         | -85.18%      |
+ 
 
 * Deno has been removed from testing due to memory leek and poor performance issues
 
