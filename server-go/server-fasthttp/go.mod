@@ -1,6 +1,6 @@
 module server-fasthttp
 
-go 1.23.0
+go 1.23
 
 require (
 	github.com/fasthttp/websocket v1.5.10

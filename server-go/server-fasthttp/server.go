@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	port                = 3005
+	port                = 3017
 	clientsToWaitFor    = 300
 	waitTimeBetweenTests = 20 * time.Second
 )

@@ -28,8 +28,8 @@
 		"build-swoole": "docker build -t server-swoole .",
 		"server-swoole": "docker run -p 3013:3013 server-swoole",
 		"server-nodewt": "cd server-node-wt && node server.js",
-		"build-go-fasthttp": "cd server-go && go build server-fasthttp.go",
-		"server-go-fasthttp": "cd server-go && ./server-fasthttp",
+		"build-go-fasthttp": "docker build -t server-go-fasthttp .",
+		"server-go-fasthttp": "docker run -p 3017:3017 server-go-fasthttp",
 		"build-dart": "docker build -t server-dart .",
 		"server-dart": "docker run -p 3016:3016 server-dart"
 	},

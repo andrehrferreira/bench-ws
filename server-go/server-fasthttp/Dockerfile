@@ -10,6 +10,6 @@ COPY . .
 
 RUN go build -o server-fasthttp .
 
-EXPOSE 3005
+EXPOSE 3017
 
 CMD ["./server-fasthttp"]
