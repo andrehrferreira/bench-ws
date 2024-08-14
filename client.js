@@ -3,20 +3,20 @@ const WebSocket = require('ws');
 const env = process.env;
 
 const SERVERS = [
-  { name: "Node", url: "ws://0.0.0.0:3001" },
-  { name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },  
-  { name: "Bun", url: "ws://0.0.0.0:3004" },
-  { name: "Go", url: "ws://0.0.0.0:3005" },
-  { name: "C#", url: "ws://0.0.0.0:3006" },
-  { name: "Python3", url: "ws://0.0.0.0:3007" },  
-  { name: "Erlang / Elixir", url: "ws://0.0.0.0:3009" },
-  { name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
-  { name: "Rust", url: "ws://0.0.0.0:3011" },
-  { name: "Java", url: "ws://0.0.0.0:3012" },
-  { name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
-  { name: "Zig", url: "ws://0.0.0.0:3008" }, 
-  { name: "Dart", url: "ws://0.0.0.0:3016" },
-  { name: "Ruby", url: "ws://0.0.0.0:3015" }
+	{ name: "Node", url: "ws://0.0.0.0:3001" },
+	{ name: "uWebsocket.js", url: "ws://0.0.0.0:3002" },  
+	{ name: "Bun", url: "ws://0.0.0.0:3004" },
+	{ name: "Go", url: "ws://0.0.0.0:3005" },
+	{ name: "C#", url: "ws://0.0.0.0:3006" },
+	{ name: "Python3", url: "ws://0.0.0.0:3007" },  
+	{ name: "Erlang / Elixir", url: "ws://0.0.0.0:3009" },
+	{ name: "C++ (Crow + TBB)", url: "ws://0.0.0.0:3010" },
+	{ name: "Rust", url: "ws://0.0.0.0:3011" },
+	{ name: "Java", url: "ws://0.0.0.0:3012" },
+	{ name: "PHP / Swoole", url: "ws://0.0.0.0:3013" },
+	{ name: "Zig", url: "ws://0.0.0.0:3008" }, 
+	{ name: "Dart", url: "ws://0.0.0.0:3016" },
+	{ name: "Ruby", url: "ws://0.0.0.0:3015" }
 ];
 
 const LOG_MESSAGES = env.LOG_MESSAGES === "1";
