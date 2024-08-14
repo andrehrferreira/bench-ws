@@ -1,0 +1,61 @@
+services:
+  elixir:
+    build: ./server_elixir
+    ports:
+      - 3009:3009
+  bun:
+    build: ./server-bun
+    ports:
+      - 3004:3004
+  # cpp:
+  #   build: ./server-cpp
+  #   ports:
+  #     - 3010:3010
+  csharp:
+    build: ./server-csharp
+    ports:
+      - 3006:3006
+  dart:
+    build: ./server-dart
+    ports:
+      - 3016:3016
+  go-gorilla:
+    build: ./server-go/server-gorilla
+    ports:
+      - 3005:3005
+  go-fasthttp:
+    build: ./server-go/server-fasthttp
+    ports:
+      - 3017:3005
+  java:
+    build: ./server-java
+    ports:
+      - 3012:3012
+  node:
+    build: ./server-node
+    ports:
+      - 3001:3001
+  python:
+    build: ./server-python
+    ports:
+      - 3007:3007
+  ruby:
+    build: ./server-ruby
+    ports:
+      - 3015:3015
+  rust:
+    build: ./server-rust
+    ports:
+      - 3011:3011
+  swoole:
+    build: ./server-swoole
+    ports:
+      - 3013:3013
+  uwebsocket:
+    build: ./server-uwebsocket
+    ports:
+      - 3002:3002
+  # zig:
+  #   build: ./server-zig
+  #   ports:
+  #     - 3008:3008
